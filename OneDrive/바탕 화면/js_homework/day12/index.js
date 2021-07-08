@@ -18,4 +18,24 @@ const colors = [
     "#ffd32a",
     "#ff3f34"
   ];
-  
+
+  const body = document.querySelector("body");
+  const btn = body.querySelector("button");
+ 
+ function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
+}
+
+let randomFrist = getRandomIntInclusive(0,colors.length); 
+let randomSecond = getRandomIntInclusive(0,colors.length);
+
+function handlerBtnClickEvent(){
+  body.style.background = `linear-gradient(45deg,${colors[randomFrist]},${colors[randomSecond]})`;
+  randomFrist =getRandomIntInclusive(0,colors.length);
+  randomSecond =getRandomIntInclusive(0,colors.length); 
+
+}
+
+btn.addEventListener("click",handlerBtnClickEvent);
